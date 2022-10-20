@@ -8,7 +8,7 @@ You can add items to the list, and cross them out. Paths available include `loca
 
 ## Dependencies
 
--   Node modules - inside project run `npm install express ejs`
+-   Node modules - inside project run `npm install`
     -   express
     -	ejs
     -   eslint - if desired for linting 
