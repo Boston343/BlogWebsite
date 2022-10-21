@@ -67,7 +67,9 @@ app.get("/compose", (req, res) => {
 // -----------------------------------------------------------------------------------
 //  add new item to Blog Website
 app.post("/newBlogPost", (req, res) => {
-    console.log("new post title: " + req.body.title);
-    console.log("text: " + req.body.post);
+    const post = {
+        title: req.body.postTitle,
+        content: req.body.postBody,
+    };
     res.redirect("/compose");
 });
