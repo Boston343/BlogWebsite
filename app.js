@@ -38,9 +38,24 @@ app.listen(port, () => {
 // -----------------------------------------------------------------------------------
 // --------------------------------- Get Requests ------------------------------------
 // -----------------------------------------------------------------------------------
+// Home page
 app.get("/", (req, res) => {
     console.log("Server is up and running.");
     res.render("home", { homeStartingContent: homeStartingContent });
+});
+
+// -----------------------------------------------------------------------------------
+// About Us page
+app.get("/about", (req, res) => {
+    console.log("Server is up and running.");
+    res.render("about", { aboutContent: aboutContent });
+});
+
+// -----------------------------------------------------------------------------------
+// Contact Us page
+app.get("/contact", (req, res) => {
+    console.log("Server is up and running.");
+    res.render("contact", { contactContent: contactContent });
 });
 
 // -----------------------------------------------------------------------------------
