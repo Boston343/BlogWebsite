@@ -47,17 +47,27 @@ app.get("/", (req, res) => {
 // -----------------------------------------------------------------------------------
 // About Us page
 app.get("/about", (req, res) => {
-    console.log("Server is up and running.");
     res.render("about", { aboutContent: aboutContent });
 });
 
 // -----------------------------------------------------------------------------------
 // Contact Us page
 app.get("/contact", (req, res) => {
-    console.log("Server is up and running.");
     res.render("contact", { contactContent: contactContent });
+});
+
+// -----------------------------------------------------------------------------------
+// Compose page
+app.get("/compose", (req, res) => {
+    res.render("compose", {});
 });
 
 // -----------------------------------------------------------------------------------
 // -------------------------------- Post Requests ------------------------------------
 // -----------------------------------------------------------------------------------
+//  add new item to Blog Website
+app.post("/newBlogPost", (req, res) => {
+    console.log("new post title: " + req.body.title);
+    console.log("text: " + req.body.post);
+    res.redirect("/compose");
+});
