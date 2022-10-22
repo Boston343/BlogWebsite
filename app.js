@@ -2,6 +2,7 @@
 import express from "express"; // npm install express
 import path from "path";
 import { fileURLToPath } from "url";
+import _ from "lodash";
 // import https from "https"; // for forming external get requests
 
 // local includes
@@ -66,6 +67,18 @@ app.get("/contact", (req, res) => {
 // Compose page
 app.get("/compose", (req, res) => {
     res.render("compose", {});
+});
+
+// -----------------------------------------------------------------------------------
+// Individual post page, using express routing
+app.get("/posts/:postTitle", (req, res) => {
+    const reqTitle = _.lowerCase(req.params.postTitle);
+
+    posts.forEach((post) => {
+        if (_.lowerCase(post.title) === reqTitle) {
+            console.log("Match found!");
+        }
+    });
 });
 
 // -----------------------------------------------------------------------------------

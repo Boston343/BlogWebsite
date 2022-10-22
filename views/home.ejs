@@ -1,14 +1,12 @@
 <%- include('partials/header'); -%>
 
     <h1>Home</h1>
-    <p> 
-        <%= homeStartingContent %> 
-    </p> 
+    <p> <%= homeStartingContent %> </p> 
 
     <!-- add every post into the homepage -->
-    <% for ( let i=0; i < posts.length; i++ ) { %>
-        <h1> <%= posts[i].title %> </h1> 
-        <p> <%= posts[i].content %> </p>   
-    <% } %>
-
+    <% posts.forEach ( post => { %>
+        <h1> <%= post.title %> </h1> 
+        <p> <%= post.content %> </p>  
+    <% }); %>
+ 
 <%- include('partials/footer'); -%>
