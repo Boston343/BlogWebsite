@@ -6,7 +6,10 @@
     <!-- add every post into the homepage -->
     <% posts.forEach ( post => { %>
         <h1> <%= post.title %> </h1> 
-        <p> <%= post.content %> </p>  
+        <p> 
+            <%= post.content.substr(0, Math.min(100, post.content.length)) + " ... "; %> 
+            <a href="/posts/<%=post.title%>" target="_blank">Read More</a>
+        </p>  
     <% }); %>
  
 <%- include('partials/footer'); -%>
