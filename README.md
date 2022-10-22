@@ -2,9 +2,7 @@
 
 Blog Website - used as an EJS challenge project. This uses express.js and EJS.
 
--------- below has not been updated --------
-
-You can add items to the list, and cross them out. Paths available include `localhost:3000/`, `localhost:3000/work`, and `localhost:3000/about`. You can clone this repo and install the node modules below to test on your local computer.
+Homepage is at `localhost:3000`. You can create posts at `localhost:3000/compose`  which then populate on the homepage. You can also type in `localhost:/3000/posts/postTitle` where "postTitle" is the title of a post seen on the homepage (created on the compose page), and that post will be rendered alone in the window.
 
 ## Dependencies
 
@@ -22,6 +20,8 @@ You can add items to the list, and cross them out. Paths available include `loca
     -   path
     -   url
     -   lodash
+-   Express
+    -   Using Express routing to dynamically render pages
 -   EJS - Data retreival and manipulation
     -   Serving up HTML files with input from server
     -   Retreive data from form, manipulate, and respond to user with updated html file
