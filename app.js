@@ -44,8 +44,10 @@ app.listen(port, () => {
 // Home page
 app.get("/", (req, res) => {
     // console.log("Server is up and running.");
-    console.log(posts);
-    res.render("home", { homeStartingContent: homeStartingContent });
+    res.render("home", {
+        homeStartingContent: homeStartingContent,
+        posts: posts,
+    });
 });
 
 // -----------------------------------------------------------------------------------
