@@ -76,7 +76,7 @@ app.get("/posts/:postTitle", (req, res) => {
 
     posts.forEach((post) => {
         if (_.lowerCase(post.title) === reqTitle) {
-            console.log("Match found!");
+            res.render("post", { post: post });
         }
     });
 });
@@ -86,6 +86,7 @@ app.get("/posts/:postTitle", (req, res) => {
 // -----------------------------------------------------------------------------------
 //  add new item to Blog Website
 app.post("/newBlogPost", (req, res) => {
+    // create object to hold post details
     const post = {
         title: req.body.postTitle,
         content: req.body.postBody,
