@@ -1,8 +1,8 @@
 # BlogWebsite
 
-Blog Website - used as an EJS challenge project. This uses express.js and EJS.
+Blog Website - used as an EJS and MongoDB challenge project. This uses express.js, EJS, and Mongoose.
 
-Homepage is at `localhost:3000`. You can create posts at `localhost:3000/compose`  which then populate on the homepage. You can also type in `localhost:/3000/posts/postTitle` where "postTitle" is the title of a post seen on the homepage (created on the compose page), and that post will be rendered alone in the window.
+Homepage is at `localhost:3000`. You can create posts at `localhost:3000/compose` which then populate on the homepage. You can also type in `localhost:/3000/posts/postTitle` where "postTitle" is the title of a post seen on the homepage (created on the compose page), and that post will be rendered alone in the window.
 
 ## Dependencies
 
@@ -12,14 +12,26 @@ Homepage is at `localhost:3000`. You can create posts at `localhost:3000/compose
     -   lodash
     -   eslint - if desired for linting
         -   [ESLint Getting Started Guide](https://eslint.org/docs/latest/user-guide/getting-started)
+-   MongoDB installed. You will need to install the free community server, as well as mongo shell
+    -   Installation files:
+        -   https://www.mongodb.com/try/download/community
+        -   https://www.mongodb.com/try/download/shell
+    -   You will then need to add both to your "PATH" environment variable
+    -   You can then start your local MongoDB with the command "mongod", and the shell can be accessed with command "mongosh"
 
 ## Includes
 
 -   JS includes
     -   express
-    -   path
-    -   url
+    -   ejs
+    -   mongoose
     -   lodash
+    -   dotenv
+    -   eslint - if desired for linting
+        -   [ESLint Getting Started Guide](https://eslint.org/docs/latest/user-guide/getting-started)
+-   Mongoose
+    -   Connecting to MongoDB Atlas, as well as local (commented out)
+    -   CRUD operations
 -   Express
     -   Using Express routing to dynamically render pages
 -   EJS - Data retreival and manipulation
