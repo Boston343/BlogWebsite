@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 const homeStartingContent =
     "<strong>Welcome to my homepage!</strong> This is a basic blog website used for an EJS and MongoDB challenge. The homepage is at `localhost:3000`, or wherever you already are. You can create posts at `localhost:3000/compose`  which then populate on the homepage. You can also type in `localhost:/3000/posts/postTitle` where 'postTitle' is the title of a post seen on the homepage (created on the compose page), and that post will be rendered alone in the window." +
     "<br><br>" +
-    "This uses the Node.js, with modules express, ejs, mongoose, lodash, and dotenv. I also use eslint for linting. Mongoose connects to MongoDB Atlas for permanently storing blog posts in the database.";
+    "This uses the Node.js, with modules express, ejs, mongoose, lodash, and dotenv. Mongoose connects to MongoDB Atlas for permanently storing blog posts in the database.";
 const aboutContent =
     "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent =
@@ -38,20 +38,20 @@ const contactContent =
 // ------------------------------- Mongoose Setup ------------------------------------
 // -----------------------------------------------------------------------------------
 // connect to MongoDB - local connection
-mongoose.connect("mongodb://localhost:27017/blogWebsiteDB", {
-    useNewUrlParser: true,
-});
+// mongoose.connect("mongodb://localhost:27017/blogWebsiteDB", {
+//     useNewUrlParser: true,
+// });
 // connect to MongoDB Atlas (the cloud)
-// mongoose.connect(
-//     "mongodb+srv://" +
-//         process.env.MONGODB_USER +
-//         ":" +
-//         process.env.MONGODB_PASS +
-//         "@cluster0.ovomich.mongodb.net/blogWebsiteDB?retryWrites=true&w=majority",
-//     {
-//         useNewUrlParser: true,
-//     }
-// );
+mongoose.connect(
+    "mongodb+srv://" +
+        process.env.MONGODB_USER +
+        ":" +
+        process.env.MONGODB_PASS +
+        "@cluster0.ovomich.mongodb.net/blogWebsiteDB?retryWrites=true&w=majority",
+    {
+        useNewUrlParser: true,
+    }
+);
 
 // schema
 const postSchema = new mongoose.Schema({
@@ -186,8 +186,12 @@ app.post("/newBlogPost", (req, res) => {
     });
 
     // add new post to collection
-    newPost.save();
-
-    // reload
-    res.redirect("/");
+    newPost.save((err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            // reload after saving only
+            res.redirect("/");
+        }
+    });
 });
